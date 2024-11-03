@@ -10,8 +10,8 @@ interface Props {
   movieFull: MovieFull;
   cast: Elenco[];
 }
-
-export const MovieDetails = ({movieFull, cast}: Props) => {
+//XD 
+export const PeliculaDetails = ({movieFull, cast}: Props) => {
   return (
     <>
       {/* Detalles */}
