@@ -1,17 +1,20 @@
+// src/navigation/Navigation.tsx
+
 import React, { useEffect, useState } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { DetailScreen } from '../screens/DetailScreen';
 import { HomeScreen } from '../screens/HomeScreen';
 import { LoginScreen } from '../screens/LoginScreen';
-import { Movie } from '../interfaces/movieInterface';
+import { RegisterScreen } from '../screens/RegisterScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { NavigationContainer } from '@react-navigation/native';
 import { ActivityIndicator, View } from 'react-native';
+import { Movie } from '../interfaces/movieInterface';
 
 export type RootStackParams = {
   HomeScreen: undefined;
   DetailScreen: Movie;
   LoginScreen: undefined;
+  RegisterScreen: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParams>();
@@ -39,21 +42,22 @@ export const Navigation = () => {
   }
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        {userToken ? (
-          <>
-            <Stack.Screen name="HomeScreen" component={HomeScreen} />
-            <Stack.Screen name="DetailScreen" component={DetailScreen} />
-          </>
-        ) : (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      {userToken ? (
+        <>
+          <Stack.Screen name="HomeScreen" component={HomeScreen} />
+          <Stack.Screen name="DetailScreen" component={DetailScreen} />
+        </>
+      ) : (
+        <>
           <Stack.Screen name="LoginScreen" component={LoginScreen} />
-        )}
-      </Stack.Navigator>
-    </NavigationContainer>
+          <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
+        </>
+      )}
+    </Stack.Navigator>
   );
 };
