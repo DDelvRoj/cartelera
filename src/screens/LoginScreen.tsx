@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, Text, Alert } from 'react-native';
+import { View, TextInput, Button, StyleSheet, Text, Alert, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -40,6 +40,10 @@ export const LoginScreen = () => {
         secureTextEntry
       />
       <Button title="Login" onPress={handleLogin} />
+      
+      <TouchableOpacity onPress={() => navigation.navigate('ForgotPasswordScreen')}>
+        <Text style={styles.forgotPasswordText}>¿Olvidaste tu contraseña?</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -61,5 +65,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 20,
     paddingLeft: 8,
+  },
+  forgotPasswordText: {
+    marginTop: 15,
+    color: 'blue',
+    textAlign: 'center',
   },
 });

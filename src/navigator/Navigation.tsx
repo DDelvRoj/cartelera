@@ -1,11 +1,10 @@
-// src/navigation/Navigation.tsx
-
 import React, { useEffect, useState } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { DetailScreen } from '../screens/DetailScreen';
 import { HomeScreen } from '../screens/HomeScreen';
 import { LoginScreen } from '../screens/LoginScreen';
 import { RegisterScreen } from '../screens/RegisterScreen';
+import { ForgotPasswordScreen } from '../screens/ForgotPasswordScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ActivityIndicator, View } from 'react-native';
 import { Movie } from '../interfaces/movieInterface';
@@ -15,6 +14,7 @@ export type RootStackParams = {
   DetailScreen: Movie;
   LoginScreen: undefined;
   RegisterScreen: undefined;
+  ForgotPasswordScreen: undefined; // Añadido
 };
 
 const Stack = createStackNavigator<RootStackParams>();
@@ -56,6 +56,7 @@ export const Navigation = () => {
         <>
           <Stack.Screen name="LoginScreen" component={LoginScreen} />
           <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
+          <Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} /> {/* Añadido */}
         </>
       )}
     </Stack.Navigator>
