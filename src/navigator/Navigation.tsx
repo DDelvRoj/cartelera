@@ -47,18 +47,15 @@ export const Navigation = () => {
         headerShown: false,
       }}
     >
-      {userToken ? (
-        <>
-          <Stack.Screen name="HomeScreen" component={HomeScreen} />
-          <Stack.Screen name="DetailScreen" component={DetailScreen} />
-        </>
-      ) : (
-        <>
-          <Stack.Screen name="LoginScreen" component={LoginScreen} />
-          <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
-          <Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} /> {/* Añadido */}
-        </>
-      )}
+     
+     
+      <Stack.Screen name="LoginScreen" component={LoginScreen} />
+      <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="DetailScreen" component={DetailScreen} />
+    
+      <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
+      <Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} /> 
+        
     </Stack.Navigator>
   );
 };
